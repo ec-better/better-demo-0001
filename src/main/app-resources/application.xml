@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<application xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" id="application">
+  <jobTemplates>
+    <jobTemplate id="notebook">
+      <streamingExecutable>/application/notebook/run</streamingExecutable>
+      <defaultParameters>
+        <parameter id="ts" title="Training set size" abstract="Size of the training set (in pixels)" maxOccurs="1" scope="runtime" type="LiteralData">1000</parameter>
+        <parameter id="nc" title="Number of classes" abstract="Number of modes, which will be used to generate class membership" maxOccurs="1" scope="runtime" type="LiteralData">5</parameter>
+        <parameter id="maxit" title="Maximum number of iterations" abstract="Maximum number of iterations for the learning step" maxOccurs="1" scope="runtime" type="LiteralData">1000</parameter>
+     </defaultParameters>
+     <defaultJobconf>
+        <property id="mapred.task.timeout">9900000000000</property>
+      </defaultJobconf>
+    </jobTemplate>
+  </jobTemplates>
+  <workflow id="dcs-notebook" title="Notebook driven application" abstract="Notebook driven application">
+    <workflowVersion>1.0</workflowVersion>
+    <node id="notebook">
+      <job id="notebook"/>
+      <sources>
+        <source id="source" title="Input references" abstract="Input references" refid="string:list" scope="runtime">https://catalog.terradue.com/sentinel2/search?uid=S2A_MSIL1C_20170909T060631_N0205_R134_T42SVG_20170909T061506,https://catalog.terradue.com/sentinel2/search?uid=S2A_MSIL1C_20170902T061631_N0205_R034_T42SUG_20170902T062631</source>
+      </sources>
+    </node>
+  </workflow>
+</application>
