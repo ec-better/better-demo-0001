@@ -40,16 +40,17 @@ def parametrize(identifier, reference):
 
     global nb
         
-    ts = ciop.getparam('ts')
-    nc = ciop.getparam('nc')
-    maxit = ciop.getparam('maxit')
+    filterSizeX = ciop.getparam('filterSizeX')
+    filterSizeY = ciop.getparam('filterSizeY')
+    polarisation = ciop.getparam('polarisation')
+    wkt = ciop.getparam('wkt')
     
-    nb.cells[1]['source'] = 'ts = %s' % (ts)  
-    nb.cells[3]['source'] = 'nc = %s' % (nc)
-    nb.cells[5]['source'] = 'maxit = %s' % (maxit) 
-    nb.cells[7]['source'] = 'data_path = "%s"' % ( tmp_dir )
-    nb.cells[8]['source'] = 's2_identifier = "%s"' % ( identifier )
-    nb.cells[9]['source'] = 's2_reference = "%s"' % ( reference )   
+    nb.cells[2]['source'] = 'filterSizeX = %s' % (filterSizeX)  
+    nb.cells[4]['source'] = 'filterSizeY = %s' % (filterSizeY)
+    nb.cells[6]['source'] = 'polarisation = "%s"' % (polarisation) 
+    nb.cells[8]['source'] = 'wkt = "%s"' % ( wkt )
+    nb.cells[10]['source'] = 'data_path = "%s"' % ( tmp_dir )
+    nb.cells[11]['source'] = 's1_identifier = "%s"' % ( identifier )   
  
 def reproducibility(path, reference):
     

@@ -4,9 +4,10 @@
     <jobTemplate id="notebook">
       <streamingExecutable>/application/notebook/run</streamingExecutable>
       <defaultParameters>
-        <parameter id="ts" title="Training set size" abstract="Size of the training set (in pixels)" maxOccurs="1" scope="runtime" type="LiteralData">1000</parameter>
-        <parameter id="nc" title="Number of classes" abstract="Number of modes, which will be used to generate class membership" maxOccurs="1" scope="runtime" type="LiteralData">5</parameter>
-        <parameter id="maxit" title="Maximum number of iterations" abstract="Maximum number of iterations for the learning step" maxOccurs="1" scope="runtime" type="LiteralData">1000</parameter>
+        <parameter id="filterSizeX" title="Speckle-Filter filterSize X" abstract="Speckle-Filter filterSize X" maxOccurs="1" scope="runtime" type="LiteralData">5</parameter>
+        <parameter id="filterSizeY" title="Speckle-Filter filterSize Y" abstract="Speckle-Filter filterSize Y" maxOccurs="1" scope="runtime" type="LiteralData">5</parameter>
+        <parameter id="polarisation" title="Sentinel-1 polarisation" abstract="Sentinel-1 polarisation" maxOccurs="1" scope="runtime" type="LiteralData">VV</parameter>
+        <parameter id="wkt" title="Area of Interest" abstract="Area of interest in WKT format" maxOccurs="1" scope="runtime" type="LiteralData">POLYGON((68.03586 37.15143, 68.13586 37.15143, 68.13586 37.25143, 68.03586 37.25143, 68.03586 37.15143))</parameter>
      </defaultParameters>
      <defaultJobconf>
         <property id="mapred.task.timeout">9900000000000</property>
@@ -18,7 +19,7 @@
     <node id="notebook">
       <job id="notebook"/>
       <sources>
-        <source id="source" title="Input references" abstract="Input references" refid="string:list" scope="runtime">https://catalog.terradue.com/sentinel2/search?uid=S2A_MSIL1C_20170909T060631_N0205_R134_T42SVG_20170909T061506,https://catalog.terradue.com/sentinel2/search?uid=S2A_MSIL1C_20170902T061631_N0205_R034_T42SUG_20170902T062631</source>
+        <source id="source" title="Input references" abstract="Input references" refid="string:list" scope="runtime">https://catalog.terradue.com/sentinel1/search?uid=S1A_IW_GRDH_1SDV_20170906T013058_20170906T013123_018248_01EADD_CC2A</source>
       </sources>
     </node>
   </workflow>
